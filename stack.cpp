@@ -1,83 +1,96 @@
 #include<iostream>
+#include<stdlib.h>
 using namespace std;
 
+struct node
+	{
+	int data;
+	node *link;
+	};
+	node *root=NULL;
+	
+	void push()
+    {
+	node *temp;
+    temp=(node*)malloc(sizeof(node));
+    cout<<"Enter Number:";
+    cin>>temp->data;
+    
+    if(root==NULL)
+	{
+	root=temp;
+	temp->link=NULL;	
+	}
+	else
+	{
+	temp->link=root;
+	root=temp;
+	
+	}
+	
+	}
+	 void pop()
+    {
+    	node *temp;
+    	
+		
+		temp=root;
+			if(temp==NULL)
+       {//nothing
+       }
+	   else
+		{
+		
+		root=temp->link;
+		temp->link=NULL;
+		free(temp);
+	}
+	
+		
+}
+		
+			void display()
+	{
+		node *temp;
+		temp=root;
+		if(temp==NULL)
+       {cout<<"\n Stack Is Empty\n";
+       }  
+       else
+       {
+	   while(temp!=NULL)
+       {cout<<" ^\n";
+       	cout<<"|"<<temp->data<<"|\n";
+       	
+       	temp=temp->link;
+	   }
+	    
+       	
+	   }
+	}
 
-int main()
-{
-    int arr[10],
-
-    top=-1;
-    int t=10,c;
-
-
-
-    do{
-    	cout<<"Enter the operation : \n 1. Adding Elements \n 2.Removing Elements \n ";
-    	cout<<"3.Display Elements \n 4.Exit \n";
-    	cin>>c;
-
-    		switch(c)
-    		{
-	    		case 1:
-	    		{
-	    			if (top>=10)
-	    			{
-	    				cout<<"Stack Overflow\n";
-	    			}
-	    			else
-	    			{
-	    				int z,x;
-	    				cout<<"Enter no. f Elements to be pushed\n";
-	    				cin>>z;
-	    				for (int i = 0; i < z; ++i)
-	    				{
-	    					cout<<"Enter element to be entered";
-	    					cin>>x;
-	    					top++;
-	    					arr[top]=x;
-	    				}
-	    			}
-	    		break;
-	    		}
-
-
-	    		case 2: {
-	    		if (top <= -1){
-	    			cout<<"Stack is Empty \n";
-	    		}
-	    		else{
-	    			cout<<"Popped Element is "<<arr[top];
-	    			top--;
-	    		}
-	    		break;	
-	    		} 
-
-	    		case 3:
-	    		{ 
-	    			if (top >=0)
-	    			{
-	    			cout<<"Elements are ";
-		    			for(int i=0; i<=top ;i++)
-		    			{
-		    				cout<<arr[i]<<"-";
-		    			}
-
-	    			}
-	    			else
-	    			{
-	    				cout<<"Stack is Empty \n";
-	    			}
-	    		break;
-	    		}
-
-	    		case 4:
-	    		{
-	    			cout<<"Thanks For Using \n";
-	    		}
-
-    		}
-
-    }while(c != 4);
-    return 0;
-
+		
+		
+		int main()
+{ 
+   
+   int c,l;
+  
+  display();
+  cout<<"\n1.Push\n2.Pop\n0.End\n";
+  cin>>c;
+  
+  while(c!=0)
+  {
+  
+  switch(c)
+  {
+  	case 1:push();display();cout<<"\n";break;
+   	case 2:pop();display();cout<<"\n";break;
+  	default :break;
+  }
+cout<<"\n1.Push\n2.Pop\n0.End\n";
+cin>>c;
+	
+  }
 }
