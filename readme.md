@@ -19,10 +19,6 @@ A step by step series of example that tell you how to get this repo in your comp
  * javascript
 
 
-## Main Contributors 
- * [**Sahaj Kulshrestha**](https://github.com/sahaj21)
-
-
 ### license
  
  This project is licensed under MIT license- see the [LICENSE.md](https://github.com/Sahaj21/ds-lab)
